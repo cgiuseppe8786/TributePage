@@ -1,0 +1,217 @@
+/* =========================================================
+   BASE
+   Tipografia e cromie di sfondo/testo condivise per l’intera pagina.
+   ========================================================= */
+body {
+  font-family: "Courier New", monospace;
+  background-color: #acacad;
+  color: #1f2937;
+}
+
+body[data-theme="dark"] {
+  background-color: #485a74;
+  color: #f3f4f6;
+}
+
+/* =========================================================
+   LAYOUT TRIBUTE
+   Contenitore principale centrato con ampiezza limitata per garantire
+   leggibilità e bilanciamento visivo su schermi ampi.
+   ========================================================= */
+.tribute-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 18px 48px;
+}
+
+/* =========================================================
+   HERO (fascia introduttiva)
+   Intestazione a tutta larghezza che introduce soggetto e contesto,
+   con sfondo neutro e tipografia gerarchica.
+   ========================================================= */
+.hero {
+  text-align: center;
+  margin: 0;
+  padding: 40px 18px;
+  background-color: #d2d3d6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+body[data-theme="dark"] .hero {
+  background-color: #1f2937;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.04);
+}
+
+#title {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+body[data-theme="dark"] #title {
+  color: #f9fafb;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #4b5563;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+body[data-theme="dark"] .subtitle { color: #cbd5e1; }
+
+/* =========================================================
+   SEPARATORI VISIVI
+   Elementi di separazione leggeri per scandire le sezioni della pagina.
+   ========================================================= */
+.divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 22px 0;
+}
+
+body[data-theme="dark"] .divider { background: rgba(255, 255, 255, 0.15); }
+
+/* =========================================================
+   BLOCCO IMMAGINE
+   Presentazione visiva principale: immagine centrata, proporzionata e
+   accompagnata da una didascalia descrittiva.
+   ========================================================= */
+#img-div {
+  margin: 22px auto 10px;
+}
+
+#image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+#img-caption {
+  text-align: center;
+  font-size: 0.92rem;
+  margin-top: 8px;
+  color: #323335;
+}
+
+body[data-theme="dark"] #img-caption { color: #d1d5db; }
+
+/* =========================================================
+   CONTENUTO TESTUALE
+   Sezione descrittiva strutturata come una “card” ampia e leggibile,
+   che ospita la timeline, le citazioni e i riferimenti esterni.
+   ========================================================= */
+#tribute-info {
+  max-width: 740px;
+  margin: 40px auto 0;
+  padding: 40px 24px;
+  background-color: #d2d3d6;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  line-height: 1.75;
+  color: #1f2937;
+}
+
+body[data-theme="dark"] #tribute-info {
+  background-color: #111827;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+}
+
+#tribute-info ul {
+  list-style: disc;
+  padding-left: 22px;
+}
+
+#tribute-info li { margin: 8px 0; }
+
+#tribute-info em {
+  color: #4b5563;
+  font-style: italic;
+}
+
+body[data-theme="dark"] #tribute-info em { color: #cbd5e1; }
+
+.timeline-intro { color: inherit; }
+body[data-theme="dark"] .timeline-intro { color: #cbd5e1; }
+
+/* =========================================================
+   CITAZIONE EDITORIALE
+   Evidenzia una frase rappresentativa con trattamento tipografico distinto
+   e attribuzione d’autore.
+   ========================================================= */
+.quote {
+  text-align: center;
+  font-style: italic;
+  color: #4b5563;
+  margin: 26px auto 0;
+  max-width: 600px;
+}
+
+.quote footer {
+  margin-top: 6px;
+  font-style: normal;
+  font-weight: 500;
+  color: #374151;
+}
+
+body[data-theme="dark"] .quote { color: #d1d5db; }
+body[data-theme="dark"] .quote footer { color: #e5e7eb; }
+
+/* =========================================================
+   LINK ESTERNO
+   Evidenziazione dell’azione con colore d’accento e focus ben visibile.
+   ========================================================= */
+#tribute-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #6366f1;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(99, 102, 241, 0.55);
+}
+
+#tribute-link:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.cta { text-align: center; }
+
+/* =========================================================
+   ICONA CAMBIO TEMA
+   Controllo dell’interfaccia per la commutazione light/dark.
+   Rimane fisso in alto a destra, minimalista e intuitivo.
+   ========================================================= */
+.theme-icon {
+  position: fixed;
+  top: 20px;
+  right: 22px;
+  font-size: 1.6rem;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+  z-index: 100;
+}
+
+body[data-theme="dark"] .theme-icon { color: #f3f4f6; }
+
+/* =========================================================
+   RESPONSIVE
+   Ridimensionamento proporzionale di tipografia e spaziature
+   per garantire leggibilità su dispositivi mobili.
+   ========================================================= */
+@media (max-width: 640px) {
+  #title { font-size: 1.9rem; }
+  .hero { padding: 28px 14px; }
+  #tribute-info { padding: 28px 16px; }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <!--
+    Meta viewport
+    Garantisce un layout fluido sui dispositivi mobili, evitando zoom di default e mantenendo proporzioni corrette.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tribute Page — Ada Lovelace</title>
+
+  <!--
+    Stylesheet principale
+    Contiene palette cromatica, gestione tema e tipografia condivisa nel progetto.
+  -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!--
+    Meta description
+    Fornisce un contesto sintetico per motori di ricerca e anteprime social.
+  -->
+  <meta
+    name="description"
+    content="Tribute page dedicata ad Ada Lovelace, considerata la pioniera della programmazione."
+  />
+</head>
+
+<body>
+  <!--
+    Theme toggle
+    Componente minimamente invasivo per l’alternanza tra tema chiaro e scuro.
+    Accessibile via tastiera (role=button, tabindex) e descritto da ARIA.
+  -->
+  <span
+    id="theme-toggle"
+    class="theme-icon"
+    role="button"
+    tabindex="0"
+    aria-label="Cambia tema"
+    title="Cambia tema"
+  >🌙</span>
+
+  <!--
+    Main container
+    id="main" richiesto dal progetto FCC.
+    Contiene la struttura semantica principale: hero, media e contenuti descrittivi.
+  -->
+  <main id="main" class="tribute-wrap">
+    <!--
+      Hero section
+      Intestazione su fascia a tutta larghezza che introduce il soggetto e il contesto.
+    -->
+    <header class="hero">
+      <h1 id="title">Ada Lovelace</h1>
+      <p class="subtitle">Dalle idee sulla Macchina Analitica alla prima forma di programmazione</p>
+    </header>
+
+    <!--
+      Media block
+      figure con immagine responsiva centrata e didascalia descrittiva.
+      Rispetta i vincoli FCC: #img-div, #image, #img-caption.
+    -->
+    <figure id="img-div">
+      <img
+        id="image"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ada_Lovelace_in_1852.jpg/800px-Ada_Lovelace_in_1852.jpg"
+        alt="Ritratto di Ada Lovelace"
+      />
+      <figcaption id="img-caption">
+        Ada Lovelace (1815–1852), matematica e visionaria: la sua elaborazione sulle “Note” alla Macchina Analitica
+        anticipa la programmazione moderna.
+      </figcaption>
+    </figure>
+
+    <!--
+      Visual rhythm
+      Separatore sottile per scandire le sezioni principali della pagina.
+    -->
+    <div class="divider" aria-hidden="true"></div>
+
+    <!--
+      Section lead-in
+      Breve paragrafo introduttivo alla timeline delle fasi rilevanti.
+    -->
+    <p class="timeline-intro">Le principali fasi che hanno portato alla nascita della programmazione:</p>
+
+    <!--
+      Descriptive content
+      #tribute-info richiesto dal progetto FCC.
+      Comprende: titolo sezione, elenco cronologico, citazione e link di approfondimento.
+    -->
+    <section id="tribute-info" aria-label="Fasi dell’invenzione della programmazione">
+      <h3 class="timeline-title">Le tappe principali della vita e del pensiero di Ada Lovelace</h3>
+
+      <ul class="timeline-list">
+        <li><strong>1815</strong> — Nasce a Londra da Lord Byron e Anne Isabella Milbanke. Fin da giovane mostra una
+          curiosità profonda per la matematica e la logica.</li>
+
+        <li><strong>1833</strong> — Incontra Charles Babbage, inventore della <em>Macchina Differenziale</em>. Da quel
+          momento inizia la collaborazione che cambierà la storia del pensiero computazionale.</li>
+
+        <li><strong>1835–1840</strong> — Studia matematica avanzata con Augustus De Morgan, diventando una delle poche
+          donne dell’epoca a ricevere una formazione scientifica di alto livello.</li>
+
+        <li><strong>1842–1843</strong> — Traduce l’articolo di Luigi Menabrea sulla <em>Macchina Analitica</em> e
+          aggiunge un apparato di <strong>Note</strong> originali che superano il testo stesso: qui formalizza concetti
+          di istruzioni, dati e cicli logici.</li>
+
+        <li><strong>1843</strong> — Nella “Nota G” descrive l’algoritmo per il calcolo dei numeri di Bernoulli:
+          considerato il primo programma informatico della storia.</li>
+
+        <li><strong>1843–1852</strong> — Sviluppa l’idea che le macchine possano manipolare simboli, testi o suoni oltre
+          ai numeri: una visione anticipatrice della moderna informatica e dell’intelligenza artificiale.</li>
+
+        <li><strong>1852</strong> — Muore a soli 36 anni, lasciando un’eredità intellettuale che sarà riconosciuta solo
+          un secolo più tardi, con la nascita dei linguaggi di programmazione.</li>
+
+        <li><strong>1980</strong> — Il Dipartimento della Difesa degli Stati Uniti dedica a lei il linguaggio di
+          programmazione <strong>ADA</strong>, riconoscendola come la prima programmatrice della storia.</li>
+      </ul>
+
+      <!--
+        Pull-quote
+        Evidenziazione editoriale di una citazione chiave con attribuzione.
+      -->
+      <blockquote class="quote" cite="https://www.cl.cam.ac.uk/~rja14/Papers/ada.pdf">
+        “La macchina analitica non ha pretese di creare nulla. Può fare solo ciò che sappiamo ordinarle di
+        eseguire.”
+        <footer>— Ada Lovelace, 1843</footer>
+      </blockquote>
+
+      <!--
+        External reference
+        Collegamento a fonti esterne con apertura in nuova scheda (target=_blank)
+        e protezioni standard (noopener, noreferrer).
+      -->
+      <p class="cta">
+        <a
+          id="tribute-link"
+          href="https://it.wikipedia.org/wiki/Ada_Lovelace"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Scopri di più su Wikipedia
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <!--
+    Theme initialization
+    Imposta il tema in base alla preferenza salvata o di sistema.
+    Gestisce l’alternanza ☀️/🌙 e persiste la scelta in localStorage.
+  -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      body.dataset.theme = savedTheme;
+      themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      body.dataset.theme = prefersDark ? 'dark' : 'light';
+      themeToggle.textContent = prefersDark ? '☀️' : '🌙';
+    }
+
+    function toggleTheme() {
+      const isDark = body.dataset.theme === 'dark';
+      body.dataset.theme = isDark ? 'light' : 'dark';
+      localStorage.setItem('theme', body.dataset.theme);
+      themeToggle.textContent = isDark ? '🌙' : '☀️';
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') toggleTheme();
+    });
+  </script>
+</body>
+</html>
